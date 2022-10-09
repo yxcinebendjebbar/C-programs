@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+//Exercice 3 :
+
+void traduire_nombre(int a,int b, int c){
+    char N1[][20]={"zero","one","two","three","four","five","six","seven","eight","nine"};
+    char N11[][20]={"eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"};
+    char N10[][20]={"","ten","twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"};
+    char N100[][20]={"","one hundred","two hundred","three hundred","four hundred","five hundred","six hundred","seven hundred","eight hundred","nine hundred"};
+    int i;
+    for(i=0;i<10;i++){
+        if(a == i){
+            printf("%s ",N100[i]);
+        }
+        if(b==1 && c==i+1 ){
+            printf("%s ",N11[i]);
+        }
+        if(b!=1 && b==i){
+            printf("%s ",N10[i]);
+        }
+
+        if(b==0 && c==i){
+            printf("%s",N1[i]);
+        }
+    }
+}
+
+
+
+int main()
+{
+    int n;
+    printf("Enter a number to translate : ");
+    scanf("%d",&n);
+    int ma=n/100;
+    int a3=(n%100)/10;
+    int a=(n%100)%10;
+    printf("\nYour number %d in letters is : ",n);
+    if(n>=100){
+        traduire_nombre(ma,a3,a);
+    }
+    else if (n>=10){
+        traduire_nombre(0,a3,a);
+    }
+    else
+        traduire_nombre(0,0,a);
+    return 0;
+}
