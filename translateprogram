@@ -9,22 +9,24 @@ void traduire_nombre(int a,int b, int c){
     char N11[][20]={"eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"};
     char N10[][20]={"","ten","twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"};
     char N100[][20]={"","one hundred","two hundred","three hundred","four hundred","five hundred","six hundred","seven hundred","eight hundred","nine hundred"};
-    int i;
-    for(i=0;i<10;i++){
-        if(a == i){
-            printf("%s ",N100[i]);
-        }
-        if(b==1 && c==i+1 ){
+    int i,j,k;
+    printf("%s ",N100[a]);
+    for(i=0,j=0,k=0;i<10;i++){
+
+        if(b==1 && c==k+1 ){
             printf("%s ",N11[i]);
         }
-        if(b!=1 && b==i){
+        if(b!=1 && b==j){
             printf("%s ",N10[i]);
         }
 
-        if(b==0 && c==i){
-            printf("%s",N1[i]);
-        }
+        j++;
+        k++;
     }
+    if (b==1 && c>0)
+    {printf("");
+    }
+    else printf(" %s ",N1[c]);
 }
 
 
